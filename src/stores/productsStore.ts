@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { fetchProducts } from '@/api/products.ts';
-import {Product} from "@utils/types.ts";
+import {Product} from "@/api/types.ts";
 
 interface ProductsState {
   products: Product[];

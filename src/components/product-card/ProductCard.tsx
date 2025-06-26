@@ -1,11 +1,11 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import { getInrString } from '@utils/helper';
-import { productCardStyles } from '@utils/styles';
-import { Product } from '@utils/types';
-import Button from '@components/Button.tsx';
+import { getInrString } from '@utils/helper.ts';
+import { Product } from '@/api/types.ts';
+import Button from '@components/button/Button.tsx';
 import { useProductActions } from '@hooks/useProductActions.ts';
+import {productCardStyles} from "@components/product-card/styles.ts";
 
 export type Props = {
   product: Product;
@@ -34,7 +34,19 @@ const ProductCard = ({ product }: Props) => {
       </View>
 
       <Text style={productCardStyles.name}>{product.name}</Text>
-      <Text style={productCardStyles.price}>{getInrString(product.price)}</Text>
+      <View style={productCardStyles.priceWrapper}>
+        <Text style={productCardStyles.price}>
+          {getInrString(product.price)}
+        </Text>
+        {product.slashedPrice && (
+          <Text
+            style={[productCardStyles.price, productCardStyles.slashedPrice]}
+          >
+            {getInrString(product.slashedPrice)}
+          </Text>
+        )}
+      </View>
+
       <Text style={productCardStyles.description} numberOfLines={2}>
         {product.description}
       </Text>

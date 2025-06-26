@@ -1,7 +1,8 @@
 import React, { ReactNode } from 'react';
-import { buttonStyles, buttonTextStyles, commonStyles } from '@utils/styles';
+import { commonStyles } from '@utils/common-styles.ts';
 import { Pressable, Text } from 'react-native';
-import { ButtonVariant } from '@utils/helper';
+import {buttonStyles, buttonTextStyles} from "@components/button/styles.ts";
+import {ButtonVariant} from "@components/button/types.ts";
 
 type BaseProps = {
   onPress?: () => void;

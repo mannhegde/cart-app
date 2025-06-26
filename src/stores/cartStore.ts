@@ -1,5 +1,23 @@
 import { create } from 'zustand';
-import { CartStore } from '@utils/types';
+import {Product} from '@/api/types.ts';
+import {CartItem} from "@components/cart-list-item/types.ts";
+
+interface CartStore {
+    items: Record<string, CartItem>;
+    remove: (productIds: string[]) => void;
+    increment: (product: Product) => void;
+    decrement: (productId: string) => void;
+    clear: () => void;
+    markOutOfStock: (ids: string[]) => void;
+    unmarkOutOfStock: (ids: string[]) => void;
+    getTotal: () => number;
+    getItems: () => CartItem[];
+    getOutOfStockItems: () => CartItem[];
+    getItemQuantity: (productId: string) => number;
+    validateCart: () => Promise<void>;
+    isValidating: boolean;
+}
+
 
 export const useCartStore = create<CartStore>((set, get) => ({
   items: {},

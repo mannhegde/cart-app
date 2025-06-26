@@ -1,8 +1,8 @@
 import React from 'react';
-import BottomModal from '@components/BottomModal';
+import BottomModal from '@components/bottom-modal/BottomModal.tsx';
 import OutOfStockItems from '@widgets/OutOfStockItems.tsx';
 import { StyleSheet, View } from 'react-native';
-import Button from '@components/Button.tsx';
+import Button from '@components/button/Button.tsx';
 import { useNavigation } from '@react-navigation/native';
 import {
   NativeStackNavigationProp,
@@ -10,6 +10,7 @@ import {
 } from '@react-navigation/native-stack';
 import { RootStackParamList } from '@navigation/stack-types.ts';
 import { X } from 'lucide-react-native';
+import {oosConfModal} from "@screens/modals/out-of-stock-conf-modal/styles.ts";
 
 type Props = NativeStackScreenProps<
   RootStackParamList,
@@ -32,7 +33,7 @@ const OutOfStockConfirmationModal: React.FC<Props> = ({ route }) => {
           action: navigation.goBack,
         }}
       />
-      <View style={styles.buttonContainer}>
+      <View style={oosConfModal.buttonContainer}>
         <Button
           text={'Remove and proceed'}
           variant={'primary'}
@@ -43,10 +44,3 @@ const OutOfStockConfirmationModal: React.FC<Props> = ({ route }) => {
   );
 };
 export default React.memo(OutOfStockConfirmationModal);
-
-const styles = StyleSheet.create({
-  buttonContainer: {
-    marginTop: 20,
-    paddingHorizontal: 16,
-  },
-});

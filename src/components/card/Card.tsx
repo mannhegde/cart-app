@@ -1,19 +1,20 @@
 import React from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { cardStyles, commonStyles } from '@utils/styles.ts';
+import { StyleSheet, Text, View } from 'react-native';
+import {  commonStyles } from '@utils/common-styles.ts';
 import {
   backgroundColors,
   borderColors,
   textColors,
   ThemeVariant,
-} from '@utils/helper.ts';
-import Button from '@components/Button.tsx';
+} from '@utils/theme.ts';
+import Button from '@components/button/Button.tsx';
 import Element = React.JSX.Element;
+import {cardStyles} from "@components/card/styles.ts";
 
 export type CardProps = {
   variant: ThemeVariant;
   title: string;
-  rightAction:
+  rightAction?:
     | {
         type: 'text';
         text: string;
@@ -42,7 +43,7 @@ const getCardStyles = ({
     headerText: { color: textColors[variant] },
     rightAction: {
       color: textColors[variant],
-      fontWeight: rAction.action ? 'bold' : 'normal',
+      fontWeight: rAction?.action ? 'bold' : 'normal',
       fontSize: 14,
     },
   });
@@ -65,17 +66,17 @@ const Card: React.FC<CardProps> = ({
           </Text>
         </View>
 
-        {rightAction.type==='text' ? (
+        {rightAction?.type==='text' ? (
           <Button
             variant={'secondary'}
-            text={rightAction.text}
+            text={rightAction?.text}
             onPress={rightAction.action}
           />
         ) : (
           <Button
             variant={'icon'}
-            icon={rightAction.icon}
-            onPress={rightAction.action}
+            icon={rightAction?.icon}
+            onPress={rightAction?.action}
           />
         )}
       </View>

@@ -1,0 +1,36 @@
+[
+  {
+    "id": "7",
+    "name": "Cucumber",
+    "price": 18,
+    "slashedPrice": 20,
+    "image": "https://picsum.photos/seed/cucumber/800/400",
+    "inStock": true,
+    "description": "Cool, crisp cucumbers, ideal for salads."
+  },
+  {
+    "id": "8",
+    "name": "Cauliflower",
+    "price": 55,
+    "slashedPrice": 60,
+    "image": "https://picsum.photos/seed/cauliflower/800/400",
+    "inStock": false,
+    "description": "White and tender cauliflower, farm fresh."
+  },
+  {
+    "id": "9",
+    "name": "Bell Pepper",
+    "price": 45,
+    "image": "https://picsum.photos/seed/bellpepper/800/400",
+    "inStock": true,
+    "description": "Colorful bell peppers packed with flavor and crunch."
+  },
+  {
+    "id": "10",
+    "name": "Ginger",
+    "price": 70,
+    "image": "https://picsum.photos/seed/ginger/800/400",
+    "inStock": true,
+    "description": "Spicy and aromatic ginger root, freshly harvested."
+  }
+]

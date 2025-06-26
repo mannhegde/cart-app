@@ -1,7 +1,7 @@
 import {Product} from "@/api/types.ts";
-import productsData from "@utils/products.json";
+import productsData from "@utils/related-products.json";
 
-export const fetchProducts = async (): Promise<Product[]> => {
+export const fetchRelatedProducts = async (): Promise<Product[]> => {
     await new Promise<void>(resolve => setTimeout(resolve, 300)); // Simulate latency
     return productsData as Product[]
 };

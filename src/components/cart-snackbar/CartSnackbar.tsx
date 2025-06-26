@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { Animated, Pressable, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '@navigation/stack-types';
-import { cartSnackbarStyles } from '@utils/styles';
+import { RootStackParamList } from '@navigation/stack-types.ts';
 import {getInrString} from "@utils/helper.ts";
+import {cartSnackbarStyles} from "@components/cart-snackbar/styles.ts";
 
 type Props = {
   visible: boolean;

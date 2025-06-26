@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import {WidgetConfig} from "@utils/types";
 import {fetchWidgets} from "@/api/widgets";
+import {WidgetConfig} from "@widgets/helpers/types.ts";
 
 export const useWidgets = () => {
     return useQuery<WidgetConfig[]>({

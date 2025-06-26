@@ -1,0 +1,75 @@
+import {StyleSheet} from "react-native";
+import {ColorPallet, fontSizes, spacings} from "@utils/theme.ts";
+
+export const productCardStyles = StyleSheet.create({
+    card: {
+        padding: spacings.large,
+        margin: 8,
+        backgroundColor: ColorPallet.white,
+        borderRadius: 10,
+        elevation: 2,
+    },
+    imageWrapper: {
+        position: 'relative',
+    },
+    image: {
+        width: '100%',
+        height: 160,
+        borderRadius: 6,
+    },
+    overlay: {
+        ...StyleSheet.absoluteFillObject,
+        backgroundColor: ColorPallet.overlay,
+        borderRadius: 6,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    outOfStockText: {
+        color: ColorPallet.white,
+        fontWeight: 'bold',
+        fontSize: fontSizes.medium,
+    },
+    name: {
+        fontSize: fontSizes.large,
+        fontWeight: '600',
+        marginTop: spacings.medium,
+    },
+    description: {
+        fontSize: fontSizes.small,
+        color: ColorPallet.textSecondary,
+    },
+    priceWrapper: {
+        flexDirection: 'row',
+        alignItems: 'flex-end',
+        justifyContent: 'flex-start',
+        gap: 4,
+        marginBottom: spacings.small,
+    },
+    price: {
+        fontSize: fontSizes.medium,
+        color: ColorPallet.darkGreen,
+    },
+    slashedPrice: {
+        fontSize: fontSizes.small,
+        color: ColorPallet.grey,
+        textDecorationLine: 'line-through',
+    },
+    actions: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 10,
+    },
+    button: {
+        paddingHorizontal: 12,
+        paddingVertical: 6,
+        borderRadius: 6,
+        borderWidth: 1,
+        borderColor: ColorPallet.border,
+        marginHorizontal: 8,
+    },
+    qty: {
+        fontSize: fontSizes.large,
+        minWidth: 20,
+        textAlign: 'center',
+    },
+});

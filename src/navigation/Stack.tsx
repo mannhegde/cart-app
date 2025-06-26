@@ -3,7 +3,7 @@ import { RootStackParamList } from '@navigation/stack-types.ts';
 import {createNativeStackNavigator, NativeStackNavigationOptions} from '@react-navigation/native-stack';
 import HomeScreen from '@screens/HomeScreen';
 import CartScreen from '@screens/CartScreen';
-import OutOfStockConfirmationModal from "@screens/modals/OutOfStockConfirmationModal";
+import OutOfStockConfirmationModal from "@screens/modals/out-of-stock-conf-modal/OutOfStockConfirmationModal.tsx";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const modalOptions: NativeStackNavigationOptions = {

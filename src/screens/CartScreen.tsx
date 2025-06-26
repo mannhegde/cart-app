@@ -2,9 +2,9 @@ import React, { useCallback, useEffect } from 'react';
 import { ActivityIndicator, Text, View } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '@navigation/stack-types.ts';
-import { commonStyles } from '@utils/styles';
+import { commonStyles } from '@utils/common-styles.ts';
 import { useCartStore } from '@stores/cartStore.ts';
-import Button from '@components/Button.tsx';
+import Button from '@components/button/Button.tsx';
 import { useWidgets } from '@hooks/useWidgets.ts';
 import { FlashList } from '@shopify/flash-list';
 import { getDivider, getWidget } from '@widgets/helpers/getWidget.tsx';
@@ -33,8 +33,7 @@ const CartScreen: React.FC<CartScreenProps> = ({ navigation }) => {
 
   const handleValidateAndPay = useCallback(async () => {
     await validateCart();
-    const outOfStockItems = getOutOfStockItems();
-    if (outOfStockItems.length > 0) {
+    if (getOutOfStockItems().length > 0) {
       navigation.navigate({
         name: 'cart/confirmation-modal',
         params: {
@@ -67,11 +66,8 @@ const CartScreen: React.FC<CartScreenProps> = ({ navigation }) => {
   }
 
   return (
-    <View style={[commonStyles.container, commonStyles.pagePadding]}>
+    <View style={[commonStyles.page]}>
       <View style={commonStyles.container}>
-        <Text style={[commonStyles.boldText, commonStyles.paddingVertical]}>
-          Review your cart
-        </Text>
         <FlashList
           data={data}
           renderItem={getWidget}

@@ -1,9 +1,9 @@
-import Card, { CardProps } from '@components/Card.tsx';
+import Card, { CardProps } from '@components/card/Card.tsx';
 import { View } from 'react-native';
 import React, { useCallback, useMemo } from 'react';
-import { WidgetConfig } from '@utils/types.ts';
 import { useCartStore } from '@stores/cartStore.ts';
 import renderCartItem from '@widgets/helpers/renderCartListItem.tsx';
+import {WidgetConfig} from "@widgets/helpers/types.ts";
 
 const OutOfStockItems: React.FC<
   WidgetConfig & Partial<Pick<CardProps, 'rightAction' | 'variant'>>

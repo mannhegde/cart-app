@@ -1,5 +1,5 @@
-import { CartItem } from '@utils/types.ts';
-import CartListItem from '@components/CartListItem.tsx';
+import CartListItem from '@components/cart-list-item/CartListItem.tsx';
+import {CartItem} from "@components/cart-list-item/types.ts";
 
 const renderCartItem = (item: CartItem) => {
   return <CartListItem item={item} key={item.product.id.toString()} />;

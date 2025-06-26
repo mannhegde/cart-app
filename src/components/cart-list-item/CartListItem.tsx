@@ -1,11 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { RefreshCw, Trash2 } from 'lucide-react-native';
-import { CartItem } from '@utils/types';
 import FastImage from 'react-native-fast-image';
 import { getInrString } from '@utils/helper.ts';
 import { useProductActions } from '@hooks/useProductActions.ts';
-import Button from './Button';
+import Button from '../button/Button.tsx';
+import {cartListItemStyles} from "@components/cart-list-item/styles.ts";
+import {CartItem} from "@components/cart-list-item/types.ts";
 
 export type Props = {
   item: CartItem;
@@ -22,9 +23,9 @@ const CartListItem: React.FC<Props> = ({ item }) => {
   const outOfStock = item.outOfStock;
 
   return (
-    <View style={[styles.container]}>
+    <View style={[cartListItemStyles.container]}>
       <FastImage
-        style={styles.image}
+        style={cartListItemStyles.image}
         source={{
           uri: item.product.image,
           priority: FastImage.priority.normal,
@@ -32,16 +33,16 @@ const CartListItem: React.FC<Props> = ({ item }) => {
         resizeMode={FastImage.resizeMode.cover}
       />
 
-      <View style={styles.info}>
-        <Text style={styles.name}>{item.product.name}</Text>
-        <Text style={styles.desc}>{item.product.description}</Text>
-        <Text style={[styles.status, outOfStock && styles.outOfStockText]}>
+      <View style={cartListItemStyles.info}>
+        <Text style={cartListItemStyles.name}>{item.product.name}</Text>
+        <Text style={cartListItemStyles.desc}>{item.product.description}</Text>
+        <Text style={[cartListItemStyles.status, outOfStock && cartListItemStyles.outOfStockText]}>
           {outOfStock ? 'Out of stock' : getInrString(item.product.price)}
         </Text>
       </View>
 
       {outOfStock ? (
-        <View style={styles.actions}>
+        <View style={cartListItemStyles.actions}>
           {handleValidateStock && (
             <Button
               variant={'icon'}
@@ -58,10 +59,10 @@ const CartListItem: React.FC<Props> = ({ item }) => {
           )}
         </View>
       ) : (
-        <View style={styles.availableItemActionsParent}>
-          <View style={styles.actions}>
+        <View style={cartListItemStyles.availableItemActionsParent}>
+          <View style={cartListItemStyles.actions}>
             <Button variant={'outlined'} text={'-'} onPress={handleDecrement} />
-            <Text style={styles.qty}>{item.quantity}</Text>
+            <Text style={cartListItemStyles.qty}>{item.quantity}</Text>
             <Button variant={'outlined'} text={'+'} onPress={handleIncrement} />
           </View>
           {handleRemove && (
@@ -79,52 +80,3 @@ const CartListItem: React.FC<Props> = ({ item }) => {
 
 export default React.memo(CartListItem);
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    padding: 12,
-    borderBottomWidth: 0.5,
-    borderColor: '#ccc',
-    backgroundColor: '#fff',
-    alignItems: 'center',
-  },
-
-  image: {
-    width: 60,
-    height: 60,
-    borderRadius: 6,
-    marginRight: 12,
-  },
-  info: {
-    flex: 1,
-    paddingRight: 8,
-  },
-  name: {
-    fontWeight: '600',
-    fontSize: 14,
-  },
-  desc: {
-    fontSize: 12,
-    color: '#666',
-  },
-  status: {
-    fontSize: 12,
-    marginTop: 4,
-  },
-  outOfStockText: {
-    color: '#d32f2f',
-  },
-  actions: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  qty: {
-    fontSize: 14,
-    fontWeight: '500',
-  },
-  availableItemActionsParent: {
-    alignItems: 'center',
-    gap: 8,
-  },
-});

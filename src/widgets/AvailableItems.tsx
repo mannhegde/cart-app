@@ -1,13 +1,13 @@
-import Card from '@components/Card.tsx';
+import Card from '@components/card/Card.tsx';
 import { View } from 'react-native';
 import React, { useMemo } from 'react';
-import { WidgetConfig } from '@utils/types.ts';
+import { WidgetConfig } from '@/api/types.ts';
 import { useCartStore } from '@stores/cartStore.ts';
 import renderCartItem from '@widgets/helpers/renderCartListItem.tsx';
-import { pluralize } from '@utils/helper.ts';
+import {noop, pluralize} from '@utils/helper.ts';
 
 const AvailableItems: React.FC<WidgetConfig> = ({ label }) => {
-    const items = useCartStore(state => state.items);
+  const items = useCartStore(state => state.items);
 
   const availableStock = useMemo(
     () => Object.values(items).filter(item => !item.outOfStock),
@@ -18,7 +18,9 @@ const AvailableItems: React.FC<WidgetConfig> = ({ label }) => {
     <Card
       title={label.toLocaleUpperCase()}
       rightAction={{
+        type: 'text',
         text: pluralize(availableStock.length, 'item'),
+          action:noop
       }}
       variant={'info'}
     >
