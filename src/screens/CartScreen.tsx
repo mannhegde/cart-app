@@ -9,6 +9,8 @@ import { useWidgets } from '@hooks/useWidgets.ts';
 import { FlashList } from '@shopify/flash-list';
 import { getDivider, getWidget } from '@widgets/helpers/getWidget.tsx';
 import Divider from '@components/Divider.tsx';
+import { useToast } from '@/providers/toast/ToastContext.tsx';
+import { spacings } from '@utils/theme.ts';
 
 type CartScreenProps = NativeStackScreenProps<RootStackParamList, 'Cart'>;
 
@@ -21,27 +23,45 @@ const CartScreen: React.FC<CartScreenProps> = ({ navigation }) => {
     getOutOfStockItems,
     remove,
   } = useCartStore();
+
   const { data } = useWidgets();
+  const { showToast } = useToast();
 
   useEffect(() => {
     validateCart();
   }, [validateCart]);
 
+  const handlePayment = useCallback(() => {
+    showToast({
+      message: 'Proceeding to payment',
+      marginBottom: spacings.huge,
+      duration: 5000,
+    });
+  }, [showToast]);
+
   const handleModalConfirmation = useCallback(async () => {
     remove(getOutOfStockItems().map(item => item.product.id));
-  }, [getOutOfStockItems, remove]);
+    handlePayment();
+  }, [getOutOfStockItems, handlePayment, remove]);
 
   const handleValidateAndPay = useCallback(async () => {
     await validateCart();
     if (getOutOfStockItems().length > 0) {
-      navigation.navigate({
+      return navigation.navigate({
         name: 'cart/confirmation-modal',
         params: {
           action: handleModalConfirmation,
         },
       });
     }
-  }, [getOutOfStockItems, handleModalConfirmation, navigation, validateCart]);
+    handlePayment();
+  }, [
+    getOutOfStockItems,
+    handleModalConfirmation,
+    handlePayment,
+    navigation,
+    validateCart,
+  ]);
 
   if (getItems().length === 0) {
     return (
@@ -67,7 +87,7 @@ const CartScreen: React.FC<CartScreenProps> = ({ navigation }) => {
 
   return (
     <View style={[commonStyles.page]}>
-      <View style={commonStyles.container}>
+      <View style={[commonStyles.container, commonStyles.bottomMarginXLarge]}>
         <FlashList
           data={data}
           renderItem={getWidget}

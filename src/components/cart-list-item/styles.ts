@@ -1,13 +1,13 @@
 import { StyleSheet } from 'react-native';
-import { ColorPallet, spacings, fontSizes } from '@utils/theme';
+import { colors, spacings, fontSizes } from '@utils/theme';
 
 export const cartListItemStyles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         padding: spacings.large,
         borderBottomWidth: 0.5,
-        borderColor: ColorPallet.grey,
-        backgroundColor: ColorPallet.white,
+        borderColor: colors.lightGrey,
+        backgroundColor: colors.white,
         alignItems: 'center',
     },
     image: {
@@ -26,14 +26,14 @@ export const cartListItemStyles = StyleSheet.create({
     },
     desc: {
         fontSize: fontSizes.small,
-        color: ColorPallet.darkGrey,
+        color: colors.darkGrey,
     },
     status: {
         fontSize: fontSizes.small,
         marginTop: 4,
     },
     outOfStockText: {
-        color: ColorPallet.mediumRed,
+        color: colors.mediumRed,
     },
     actions: {
         flexDirection: 'row',

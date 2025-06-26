@@ -15,7 +15,16 @@ buildscript {
         classpath("com.android.tools.build:gradle")
         classpath("com.facebook.react:react-native-gradle-plugin")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+        if (hermesEnabled.toBoolean()) {
+          implementation("com.facebook.react:hermes-android")
+        } else {
+          implementation jscFlavor
+        }
     }
 }
+
+project.ext.react = [
+    enableHermes: true
+]
 
 apply plugin: "com.facebook.react.rootproject"

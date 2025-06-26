@@ -45,7 +45,7 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
         style={[
           commonStyles.container,
           commonStyles.horizontalPagePadding,
-          commonStyles.bottomMargin,
+          commonStyles.bottomMarginXXXLarge,
         ]}
       >
         <FlashList

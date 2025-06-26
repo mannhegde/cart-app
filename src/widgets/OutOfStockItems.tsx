@@ -1,13 +1,11 @@
-import Card, { CardProps } from '@components/card/Card.tsx';
+import Card from '@components/card/Card.tsx';
 import { View } from 'react-native';
 import React, { useCallback, useMemo } from 'react';
 import { useCartStore } from '@stores/cartStore.ts';
 import renderCartItem from '@widgets/helpers/renderCartListItem.tsx';
-import {WidgetConfig} from "@widgets/helpers/types.ts";
+import { WidgetConfig } from '@widgets/helpers/types.ts';
 
-const OutOfStockItems: React.FC<
-  WidgetConfig & Partial<Pick<CardProps, 'rightAction' | 'variant'>>
-> = ({ label, variant, rightAction }) => {
+const OutOfStockItems: React.FC<WidgetConfig> = ({ label }) => {
   const items = useCartStore(state => state.items);
   const remove = useCartStore(state => state.remove);
 
@@ -23,14 +21,12 @@ const OutOfStockItems: React.FC<
   return outOfStockItems.length > 0 ? (
     <Card
       title={label.toLocaleUpperCase()}
-      rightAction={
-        rightAction || {
-          type: 'text',
-          action: handleRemoveOutOfStockItems,
-          text: 'Remove All',
-        }
-      }
-      variant={variant || 'error'}
+      rightAction={{
+        type: 'text',
+        action: handleRemoveOutOfStockItems,
+        text: 'Remove All',
+      }}
+      variant={'error'}
     >
       <View>{outOfStockItems.map(renderCartItem)}</View>
     </Card>

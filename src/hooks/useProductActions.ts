@@ -1,13 +1,14 @@
 import { Product } from '@/api/types.ts';
 import { useCartStore } from '@stores/cartStore';
-import { useCallback } from 'react';
+import {useCallback, useState} from 'react';
 import {useToast} from "@/providers/toast/ToastContext";
+import {spacings} from "@utils/theme.ts";
 
 export const useProductActions = (product: Product) => {
   const { increment, decrement, remove, getItemQuantity, unmarkOutOfStock } =
     useCartStore();
   const { showToast } = useToast();
-
+  const [notified, setNotified] = useState(false);
   const getQuantity = useCallback(
     () => getItemQuantity(product.id),
     [getItemQuantity, product.id],
@@ -31,11 +32,13 @@ export const useProductActions = (product: Product) => {
     remove([product.id]);
     showToast({
       message:`${product.name} removed from cart`,
-      marginBottom:100
+      marginBottom:spacings.huge
     })
   }, [remove, product.id, product.name, showToast]);
 
-  const handleNotify = useCallback(() => {}, []);
+  const handleNotify = useCallback(() => {
+    setNotified(true);
+  }, []);
 
   return {
     getQuantity,
@@ -43,6 +46,7 @@ export const useProductActions = (product: Product) => {
     handleDecrement,
     handleValidateStock,
     handleRemove,
-    handleNotify
+    handleNotify,
+    notified
   };
 };

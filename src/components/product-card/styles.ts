@@ -1,11 +1,11 @@
 import {StyleSheet} from "react-native";
-import {ColorPallet, fontSizes, spacings} from "@utils/theme.ts";
+import {colors, fontSizes, spacings} from "@utils/theme.ts";
 
 export const productCardStyles = StyleSheet.create({
     card: {
         padding: spacings.large,
         margin: 8,
-        backgroundColor: ColorPallet.white,
+        backgroundColor: colors.white,
         borderRadius: 10,
         elevation: 2,
     },
@@ -19,13 +19,13 @@ export const productCardStyles = StyleSheet.create({
     },
     overlay: {
         ...StyleSheet.absoluteFillObject,
-        backgroundColor: ColorPallet.overlay,
+        backgroundColor: colors.overlay,
         borderRadius: 6,
         justifyContent: 'center',
         alignItems: 'center',
     },
     outOfStockText: {
-        color: ColorPallet.white,
+        color: colors.white,
         fontWeight: 'bold',
         fontSize: fontSizes.medium,
     },
@@ -36,7 +36,7 @@ export const productCardStyles = StyleSheet.create({
     },
     description: {
         fontSize: fontSizes.small,
-        color: ColorPallet.textSecondary,
+        color: colors.textSecondary,
     },
     priceWrapper: {
         flexDirection: 'row',
@@ -47,11 +47,11 @@ export const productCardStyles = StyleSheet.create({
     },
     price: {
         fontSize: fontSizes.medium,
-        color: ColorPallet.darkGreen,
+        color: colors.darkGreen,
     },
     slashedPrice: {
         fontSize: fontSizes.small,
-        color: ColorPallet.grey,
+        color: colors.grey,
         textDecorationLine: 'line-through',
     },
     actions: {
@@ -64,7 +64,7 @@ export const productCardStyles = StyleSheet.create({
         paddingVertical: 6,
         borderRadius: 6,
         borderWidth: 1,
-        borderColor: ColorPallet.border,
+        borderColor: colors.border,
         marginHorizontal: 8,
     },
     qty: {

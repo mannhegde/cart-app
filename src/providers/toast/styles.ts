@@ -1,5 +1,5 @@
 import {StyleSheet} from "react-native";
-import {ColorPallet, fontSizes, spacings} from "@utils/theme.ts";
+import {colors, fontSizes, spacings} from "@utils/theme.ts";
 
 export const toastStyles = StyleSheet.create({
     toast: {
@@ -12,14 +12,14 @@ export const toastStyles = StyleSheet.create({
         borderRadius: 8,
         padding: spacings.large,
         borderWidth: 1,
-        borderColor: ColorPallet.grey,
-        backgroundColor: ColorPallet.black,
+        borderColor: colors.grey,
+        backgroundColor: colors.black,
         zIndex: 999,
     },
     text: {
         paddingLeft: spacings.medium,
         fontSize: fontSizes.large,
-        color: ColorPallet.white,
+        color: colors.white,
         textAlign: 'center',
         flex: 1,
     },

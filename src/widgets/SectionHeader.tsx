@@ -1,7 +1,7 @@
 import React from 'react';
 import { commonStyles } from '@utils/common-styles.ts';
 import { Text } from 'react-native';
-import { WidgetConfig } from '@/api/types.ts';
+import {WidgetConfig} from "@widgets/helpers/types.ts";
 
 const SectionHeader: React.FC<WidgetConfig> = ({ label }) => {
   return (

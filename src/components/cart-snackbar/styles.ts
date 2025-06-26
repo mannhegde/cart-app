@@ -1,4 +1,4 @@
-import {ColorPallet, fontSizes} from "@utils/theme.ts";
+import {colors, fontSizes} from "@utils/theme.ts";
 import {StyleSheet} from "react-native";
 
 export const cartSnackbarStyles = StyleSheet.create({
@@ -7,7 +7,7 @@ export const cartSnackbarStyles = StyleSheet.create({
         bottom: 24,
         left: 16,
         right: 16,
-        backgroundColor: ColorPallet.snackbarBackground,
+        backgroundColor: colors.snackbarBackground,
         borderRadius: 8,
         padding: 12,
         flexDirection: 'row',
@@ -16,18 +16,18 @@ export const cartSnackbarStyles = StyleSheet.create({
         elevation: 6,
     },
     text: {
-        color: ColorPallet.white,
+        color: colors.white,
         fontSize: fontSizes.medium,
     },
     button: {
         marginLeft: 12,
         paddingHorizontal: 12,
         paddingVertical: 6,
-        backgroundColor: ColorPallet.transparentWhite,
+        backgroundColor: colors.transparentWhite,
         borderRadius: 6,
     },
     buttonText: {
-        color: ColorPallet.white,
+        color: colors.white,
         fontWeight: '600',
     },
 });

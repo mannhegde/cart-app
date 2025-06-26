@@ -9,7 +9,7 @@ export type ThemeVariant =
 
 type VariantColors = Record<ThemeVariant, string>;
 
-export const ColorPallet: { [key: string]: string } = {
+export const colors: { [key: string]: string } = {
     lightGreen: '#e6f4ea',
     lightOrange: '#fff4e5',
     lightRed: '#fdecea',
@@ -29,6 +29,7 @@ export const ColorPallet: { [key: string]: string } = {
     black: '#000000',
     darkGrey: '#666666',
     grey: '#9e9e9e',
+    lightGrey: '#E5E5E5',
 
     snackbarBackground: '#323232',
     transparentWhite: '#ffffff22',
@@ -38,33 +39,33 @@ export const ColorPallet: { [key: string]: string } = {
 };
 
 export const backgroundColors: VariantColors = {
-    success: ColorPallet.lightGreen,
-    warning: ColorPallet.lightOrange,
-    error: ColorPallet.lightRed,
-    info: ColorPallet.lightBlue,
-    transparent: ColorPallet.transparent,
-    dark: ColorPallet.black,
-    light: ColorPallet.white,
+    success: colors.lightGreen,
+    warning: colors.lightOrange,
+    error: colors.lightRed,
+    info: colors.lightBlue,
+    transparent: colors.transparent,
+    dark: colors.black,
+    light: colors.white,
 };
 
 export const textColors: VariantColors = {
-    success: ColorPallet.darkGreen,
-    warning: ColorPallet.darkOrange,
-    error: ColorPallet.darkRed,
-    info: ColorPallet.blue,
-    transparent: ColorPallet.black,
-    dark: ColorPallet.white,
-    light: ColorPallet.black,
+    success: colors.darkGreen,
+    warning: colors.darkOrange,
+    error: colors.darkRed,
+    info: colors.blue,
+    transparent: colors.black,
+    dark: colors.white,
+    light: colors.black,
 };
 
 export const borderColors: VariantColors = {
-    success: ColorPallet.mediumGreen,
-    warning: ColorPallet.mediumOrange,
-    error: ColorPallet.mediumRed,
-    info: ColorPallet.mediumBlue,
-    transparent: ColorPallet.transparent,
-    dark: ColorPallet.black,
-    light: ColorPallet.grey,
+    success: colors.mediumGreen,
+    warning: colors.mediumOrange,
+    error: colors.mediumRed,
+    info: colors.mediumBlue,
+    transparent: colors.transparent,
+    dark: colors.black,
+    light: colors.grey,
 };
 
 export const spacings = {
@@ -73,6 +74,8 @@ export const spacings = {
     large: 16,
     xlarge: 32,
     xxlarge: 48,
+    xxxlarge: 64,
+    huge: 96,
 }
 export const fontSizes = {
     small: 12,

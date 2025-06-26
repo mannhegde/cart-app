@@ -5,7 +5,7 @@ export const isRecordEmpty = <T extends Record<string, any>>(obj: T) =>
   Object.keys(obj).length === 0;
 
 export const getInrString = (val?: number | string) => {
-  if (!val) return null;
+  if (!val) return '';
   return `₹${val}`;
 };
 

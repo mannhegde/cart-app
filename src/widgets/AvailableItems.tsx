@@ -1,10 +1,10 @@
 import Card from '@components/card/Card.tsx';
 import { View } from 'react-native';
 import React, { useMemo } from 'react';
-import { WidgetConfig } from '@/api/types.ts';
 import { useCartStore } from '@stores/cartStore.ts';
 import renderCartItem from '@widgets/helpers/renderCartListItem.tsx';
 import {noop, pluralize} from '@utils/helper.ts';
+import {WidgetConfig} from "@widgets/helpers/types.ts";
 
 const AvailableItems: React.FC<WidgetConfig> = ({ label }) => {
   const items = useCartStore(state => state.items);

@@ -1,10 +1,10 @@
 import {StyleSheet} from "react-native";
-import {ColorPallet, spacings} from "@utils/theme.ts";
+import {colors, spacings} from "@utils/theme.ts";
 
 export const bottomModalStyles =   StyleSheet.create({
     container: {
         justifyContent: 'flex-end',
-        backgroundColor: ColorPallet.overlay,
+        backgroundColor: colors.overlay,
     },
     overLay: {
         flex: 1,
@@ -12,7 +12,7 @@ export const bottomModalStyles =   StyleSheet.create({
     body: {
         borderTopLeftRadius: 16,
         borderTopRightRadius: 16,
-        backgroundColor: ColorPallet.white,
+        backgroundColor: colors.white,
         paddingBottom: spacings.large,
     },
 });

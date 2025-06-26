@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { ColorPallet, fontSizes, spacings } from '@utils/theme';
+import { colors, fontSizes, spacings } from '@utils/theme';
 
 export const commonStyles = StyleSheet.create({
   container: { flex: 1 },
@@ -17,7 +17,7 @@ export const commonStyles = StyleSheet.create({
     alignItems: 'center',
   },
   errorText: {
-    color: ColorPallet.mediumRed,
+    color: colors.mediumRed,
     fontSize: fontSizes.large,
     fontWeight: '500',
     textAlign: 'center',
@@ -33,9 +33,12 @@ export const commonStyles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonDisabled: {
-    backgroundColor: ColorPallet.grey,
+    backgroundColor: colors.grey,
   },
-  bottomMargin: {
-    marginBottom: 60,
+  bottomMarginXXXLarge: {
+    marginBottom: spacings.xxxlarge,
+  },
+  bottomMarginXLarge: {
+    marginBottom: spacings.xlarge,
   },
 });
