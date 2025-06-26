@@ -1,0 +1,82 @@
+[
+  {
+    "id": "1",
+    "name": "Tomato",
+    "price": 30,
+    "image": "https://picsum.photos/seed/tomato/800/400",
+    "inStock": true,
+    "description": "Fresh red tomatoes perfect for salads and cooking."
+  },
+  {
+    "id": "2",
+    "name": "Potato",
+    "price": 25,
+    "image": "https://picsum.photos/seed/potato/800/400",
+    "inStock": true,
+    "description": "Organic brown potatoes, great for boiling or frying."
+  },
+  {
+    "id": "3",
+    "name": "Carrot",
+    "price": 40,
+    "image": "https://picsum.photos/seed/carrot/800/400",
+    "inStock": false,
+    "description": "Crunchy and sweet carrots, rich in vitamin A."
+  },
+  {
+    "id": "4",
+    "name": "Broccoli",
+    "price": 60,
+    "image": "https://picsum.photos/seed/broccoli/800/400",
+    "inStock": true,
+    "description": "Fresh green broccoli, excellent for steaming and stir-fry."
+  },
+  {
+    "id": "5",
+    "name": "Spinach",
+    "price": 35,
+    "image": "https://picsum.photos/seed/spinach/800/400",
+    "inStock": false,
+    "description": "Leafy spinach full of iron and nutrients."
+  },
+  {
+    "id": "6",
+    "name": "Onion",
+    "price": 20,
+    "image": "https://picsum.photos/seed/onion/800/400",
+    "inStock": true,
+    "description": "Pungent and flavorful onions for all your recipes."
+  },
+  {
+    "id": "7",
+    "name": "Cucumber",
+    "price": 18,
+    "image": "https://picsum.photos/seed/cucumber/800/400",
+    "inStock": true,
+    "description": "Cool, crisp cucumbers, ideal for salads."
+  },
+  {
+    "id": "8",
+    "name": "Cauliflower",
+    "price": 55,
+    "image": "https://picsum.photos/seed/cauliflower/800/400",
+    "inStock": false,
+    "description": "White and tender cauliflower, farm fresh."
+  },
+  {
+    "id": "9",
+    "name": "Bell Pepper",
+    "price": 45,
+    "image": "https://picsum.photos/seed/bellpepper/800/400",
+    "inStock": true,
+    "description": "Colorful bell peppers packed with flavor and crunch."
+  },
+  {
+    "id": "10",
+    "name": "Ginger",
+    "price": 70,
+    "image": "https://picsum.photos/seed/ginger/800/400",
+    "inStock": true,
+    "description": "Spicy and aromatic ginger root, freshly harvested."
+  }
+]

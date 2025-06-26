@@ -1,28 +1,22 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+// App.tsx - Replace the existing App.tsx content
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import RootStackNavigator from "./src/navigation/Stack";
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+const queryClient = new QueryClient();
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  return (
-    <View style={styles.container}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <NewAppScreen templateFileName="App.tsx" />
-    </View>
-  );
+function App(): React.JSX.Element {
+    return (
+        <SafeAreaProvider>
+            <QueryClientProvider client={queryClient}>
+                <NavigationContainer>
+                    <RootStackNavigator/>
+                </NavigationContainer>
+            </QueryClientProvider>
+        </SafeAreaProvider>
+    );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;
